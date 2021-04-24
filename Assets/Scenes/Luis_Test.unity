@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1469630724, guid: 3f492ddbed565b74992431d0d2c98656, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Keyboard&Mouse
+      objectReference: {fileID: 0}
     - target: {fileID: 1480959864394947858, guid: 3f492ddbed565b74992431d0d2c98656, type: 3}
       propertyPath: m_Name
       value: FPS_Player
