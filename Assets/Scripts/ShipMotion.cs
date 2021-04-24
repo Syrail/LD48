@@ -5,31 +5,37 @@ using UnityEngine;
 public class ShipMotion : MonoBehaviour
 {
 
-    public Quaternion TargetAttitude { get; set; }
     public float Speed { get; set; }
-    private float timeToAttitude;
+       
+    public float[] thrusterPower;
+    public Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
     {
-        timeToAttitude = 0.0f;
-        Speed = 4.0f;
-        TargetAttitude = GetComponent<Transform>().rotation;
+
+        thrusterPower = new float[4] { 0f, 0f, 0f, 0f };
+        velocity = Vector3.forward * Speed;
     }
 
-
-    void RotateHeading(Quaternion rot)
+    public void EngageThruster(int thrusterIndex)
     {
-        TargetAttitude = TargetAttitude * rot;
-        timeToAttitude += 1.0f;
+        thrusterPower[thrusterIndex] += 1.0f;
     }
 
 
     private void FixedUpdate()
     {
-        transform.rotation = Quaternion.Slerp(transform.rotation, TargetAttitude, Time.fixedDeltaTime/timeToAttitude);
-        transform.position += Speed *Time.fixedDeltaTime*transform.forward;
-        timeToAttitude -= Time.fixedDeltaTime;
+        Quaternion thrustRotation = Quaternion.Euler(thrusterPower[1] - thrusterPower[0], thrusterPower[3] - thrusterPower[2], 0.0f);
+        for(int i = 0; i < thrusterPower.Length; i++)
+        {
+            thrusterPower[i] = Mathf.Lerp(thrusterPower[i], 0.0f, 0.05f);
+        }
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation*thrustRotation, Time.fixedDeltaTime);
+        velocity += transform.forward * Time.fixedDeltaTime;
+        velocity.Normalize();
+        transform.position += Speed *Time.fixedDeltaTime*velocity;
     }
 
 

@@ -5,12 +5,6 @@ using UnityEngine;
 public class MenuDriver : MonoBehaviour 
 {
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void GameStart()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Primary");
