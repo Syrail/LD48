@@ -497,6 +497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57e100a208856149836057e7b672422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrusterPower: []
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!1 &593510290
 GameObject:
   m_ObjectHideFlags: 0
@@ -6688,3 +6690,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4785757ad64a2f44bb8bde1a631c34d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipMotion: {fileID: 321370861}
