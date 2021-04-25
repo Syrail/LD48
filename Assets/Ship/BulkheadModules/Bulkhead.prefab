@@ -808,6 +808,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 52fd644bdbbf0b8479dd0b0a2d5e843c, type: 3}
   - {fileID: 8300000, guid: b8d26b2740844c948a7fc0831f9c7626, type: 3}
   warningSound: {fileID: 8300000, guid: ad6938bbd0f540844afed93d05b45e53, type: 3}
+  cameraShakeDuration: 0.3
   MaxHealth: 10
   index: 0
   healthListener: {fileID: 2592383036165469187}
