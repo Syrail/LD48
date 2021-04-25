@@ -8,7 +8,8 @@ public class Interactable : MonoBehaviour
     {
         Thrusters,
         Boost,
-        Repair
+        Repair,
+        Upgrade
     }
     
     public InteractionType interaction;
