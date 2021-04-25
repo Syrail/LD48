@@ -58,10 +58,11 @@ public class SpawnObjectManager : MonoBehaviour
         float currentWeight = 0.0f;
         for (int i = 0; i < spawnableObjects.Length; ++i)
         {
-            if (randomNumber < spawnableObjects[i].weight || Mathf.Approximately(randomNumber, spawnableObjects[i].weight))
+            currentWeight += spawnableObjects[i].weight;
+            if (randomNumber < currentWeight || Mathf.Approximately(randomNumber, spawnableObjects[i].weight))
                 return i;
 
-            currentWeight += spawnableObjects[i].weight;
+            
         }
         return 0;
     }

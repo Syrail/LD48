@@ -7,7 +7,7 @@ public class MenuDriver : MonoBehaviour
 
     public void GameStart()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Primary");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Assets/Scenes/Syrail_Test.unity");
     }
 
     public void GameQuit()

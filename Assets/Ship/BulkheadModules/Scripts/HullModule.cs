@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class HullModule : MonoBehaviour
 { 
+    public enum DamageType
+    {
+        Impact =0,
+        Energy =1,
+    };
+
+    public List<AudioClip> DamageSounds;
+    public AudioClip warningSound;
+
     private int health;
     public int MaxHealth;
     public int index;
     public GameObject healthListener;
-
-    private bool uiActive = false;
+    
     private static int nextIndex = 0;
     // Start is called before the first frame update
     void Start()
@@ -50,12 +58,17 @@ public class HullModule : MonoBehaviour
             }
     }
 
-    public void Damage(int damageDealt)
+    public void Damage(int damageDealt, DamageType type)
     {
+        AudioSource src = GetComponent<AudioSource>();
+        src.PlayOneShot(DamageSounds[(int)type]);
         health -= damageDealt;
+        updateHealthDisplay();
         if(health <= 0)
         {
+            health = 0;
             //bad stuff!
+            //src.PlayOneShot(warningSound);
         }
     }
 

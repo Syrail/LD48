@@ -14,6 +14,7 @@ public class SpawnableObject : MonoBehaviour
     Vector3 velocity;
     GameObject shipInstance = null;
     float maxDistanceFromShip = 0.0f;
+    bool hasImpactedShip;
 
     void Start()
     {
@@ -27,7 +28,7 @@ public class SpawnableObject : MonoBehaviour
         rb.velocity = velocity;
         rb.angularVelocity = angularSpeed;
         rb.useGravity = false;
-
+        hasImpactedShip = false;
 
     }
 
@@ -52,13 +53,25 @@ public class SpawnableObject : MonoBehaviour
     {
     }
 
-    /*void OnTriggerEnter(Collider target)
+    void OnTriggerEnter(Collider target)
     {
-        if (target.gameObject.tag.Equals("DespawnWall") == true)
+        DamageZone dmgZone;
+        if (!hasImpactedShip && target.gameObject.tag.Equals("DamageZone") == true && target.gameObject.TryGetComponent(out dmgZone))
         {
-            Destroy(gameObject);
+            hasImpactedShip = true;
+            dmgZone.DealDamage(damage);
         }
-    }*/
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(hasImpactedShip)
+        {
+            Vector3 rev = collision.GetContact(0).normal;
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.AddForceAtPosition(rb.mass * 100f* rev, collision.GetContact(0).point);
+        }
+    }
 
     public void SetShip(GameObject ship, float maxDistance)
     {
