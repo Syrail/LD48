@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471250404550836635}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.063, z: 0}
+  m_LocalPosition: {x: 0, y: 1.577, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 471250406088041900}
@@ -42,8 +42,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.34117645, g: 0.6810939, b: 0.98039216, a: 1}
-  m_Intensity: 0.4
+  m_Color: {r: 0.34117645, g: 0.6995627, b: 0.98039216, a: 1}
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5160,13 +5160,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471250406175508137}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.149, z: 0}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 2.898, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 471250406088041900}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &471250406175508136
 Light:
   m_ObjectHideFlags: 0
@@ -5176,13 +5176,13 @@ Light:
   m_GameObject: {fileID: 471250406175508137}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.33938524, g: 0.8542137, b: 0.9811321, a: 1}
-  m_Intensity: 2
+  m_Intensity: 3
   m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
+  m_SpotAngle: 171.27779
+  m_InnerSpotAngle: 109.465935
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -5280,9 +5280,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -606140450389437036, guid: 30da40cb0c4ab684aa12bde189086866, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363732084808846301, guid: 30da40cb0c4ab684aa12bde189086866, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 30da40cb0c4ab684aa12bde189086866, type: 3}
       propertyPath: m_Name
       value: ShipBlockout_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904387677731607798, guid: 30da40cb0c4ab684aa12bde189086866, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017886408040631286, guid: 30da40cb0c4ab684aa12bde189086866, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885985696208802815, guid: 30da40cb0c4ab684aa12bde189086866, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30da40cb0c4ab684aa12bde189086866, type: 3}
