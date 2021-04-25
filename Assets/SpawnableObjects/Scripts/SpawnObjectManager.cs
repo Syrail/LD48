@@ -7,7 +7,7 @@ public class SpawnObjectManager : MonoBehaviour
     [System.Serializable]
     public struct SpawnObjectChance
     {
-        public GameObject spawnableObject;
+        public SpawnableObject spawnableObject;
         public float weight;
     }
 
@@ -15,6 +15,7 @@ public class SpawnObjectManager : MonoBehaviour
     public Vector2 spawnTimerRange = new Vector2(0.5f, 5.0f);
     public GameObject ship;
     public float distanceFromShip = 20.0f;
+    public float maxDistanceFromShip = 40.0f;
 
     float totalWeight = 0.0f;
     // Start is called before the first frame update
@@ -32,8 +33,8 @@ public class SpawnObjectManager : MonoBehaviour
             Vector3 spawnPosition = ship.transform.position + (ship.transform.forward * distanceFromShip);
             int objectIndex = SelectGameObjectToSpawn();
 
-            Instantiate(spawnableObjects[objectIndex].spawnableObject, spawnPosition, Quaternion.LookRotation(-ship.transform.forward, ship.transform.up));
-
+            SpawnableObject newObject = Instantiate(spawnableObjects[objectIndex].spawnableObject, spawnPosition, Quaternion.LookRotation(-ship.transform.forward, ship.transform.up));
+            newObject.SetShip(ship, maxDistanceFromShip);
             yield return new WaitForSeconds(UnityEngine.Random.Range(spawnTimerRange.x, spawnTimerRange.y));
         }
     }

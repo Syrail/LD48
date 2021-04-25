@@ -520,6 +520,7 @@ Transform:
   m_Children:
   - {fileID: 1327001001}
   - {fileID: 2016582793}
+  - {fileID: 588904236}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -542,6 +543,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7161648603588015760, guid: afea2e48d5bc40c4c9f8d23b918c0172, type: 3}
   m_PrefabInstance: {fileID: 1025591952}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &588904235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 588904236}
+  - component: {fileID: 588904237}
+  m_Layer: 0
+  m_Name: ShipCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &588904236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588904235}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.35, z: -1.34}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 321370860}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &588904237
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588904235}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 4, z: 12}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &593510290
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,6 +934,18 @@ PrefabInstance:
       propertyPath: ship
       value: 
       objectReference: {fileID: 321370859}
+    - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
+      propertyPath: spawnTimerRange.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
+      propertyPath: spawnTimerRange.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
+      propertyPath: spawnableObjects.Array.data[0].spawnableObject
+      value: 
+      objectReference: {fileID: -3925850852026695216, guid: 8b3afd53345ba8842a924ecaf8718761, type: 3}
     - target: {fileID: 4091511338538064938, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: m_Name
       value: SpawnerManager
