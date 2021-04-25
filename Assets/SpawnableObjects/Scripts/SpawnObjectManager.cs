@@ -32,7 +32,7 @@ public class SpawnObjectManager : MonoBehaviour
             Vector3 spawnPosition = ship.transform.position + (ship.transform.forward * distanceFromShip);
             int objectIndex = SelectGameObjectToSpawn();
 
-            Instantiate(spawnableObjects[objectIndex].spawnableObject, spawnPosition, Quaternion.LookRotation(ship.transform.forward, ship.transform.up));
+            Instantiate(spawnableObjects[objectIndex].spawnableObject, spawnPosition, Quaternion.LookRotation(-ship.transform.forward, ship.transform.up));
 
             yield return new WaitForSeconds(UnityEngine.Random.Range(spawnTimerRange.x, spawnTimerRange.y));
         }
