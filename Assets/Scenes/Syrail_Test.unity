@@ -473,6 +473,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3019262483742828144, guid: 3f492ddbed565b74992431d0d2c98656, type: 3}
+      propertyPath: m_Volume
+      value: 0.652
+      objectReference: {fileID: 0}
     - target: {fileID: 4836214955033457817, guid: 3f492ddbed565b74992431d0d2c98656, type: 3}
       propertyPath: Mute
       value: 1
@@ -747,6 +751,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afea2e48d5bc40c4c9f8d23b918c0172, type: 3}
+--- !u!1 &761445828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1480959864306234148, guid: 3f492ddbed565b74992431d0d2c98656, type: 3}
+  m_PrefabInstance: {fileID: 274376025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &761445834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761445828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad1e85ffd9c9234ea0ba19b009bc1f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeAmount: 0.7
+  decreaseFactor: 1
 --- !u!1 &762598841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,6 +1629,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7161648603588015760, guid: afea2e48d5bc40c4c9f8d23b918c0172, type: 3}
   m_PrefabInstance: {fileID: 1589870064}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1891818495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1480959864394947858, guid: 3f492ddbed565b74992431d0d2c98656, type: 3}
+  m_PrefabInstance: {fileID: 274376025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1891818505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891818495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad1e85ffd9c9234ea0ba19b009bc1f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeAmount: 0.7
+  decreaseFactor: 1
 --- !u!4 &1955281407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 471250406088041900, guid: 5cc9e50a55f27db4da29222a07cca768, type: 3}

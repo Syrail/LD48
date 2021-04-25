@@ -12,12 +12,15 @@ public class HullModule : MonoBehaviour
 
     public List<AudioClip> DamageSounds;
     public AudioClip warningSound;
+    public float cameraShakeDuration = 0.3f;
 
     private int health;
     public int MaxHealth;
     public int index;
     public GameObject healthListener;
-    
+
+    Shake cameraShake = null;
+
     private static int nextIndex = 0;
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,8 @@ public class HullModule : MonoBehaviour
         {
             interactable.slot = index;
         }
+        cameraShake = Camera.main.transform.parent.GetComponent<Shake>();
+
     }
 
     private void updateHealthDisplay()
@@ -67,6 +72,12 @@ public class HullModule : MonoBehaviour
             health = 0;
             //bad stuff!
             //src.PlayOneShot(warningSound);
+        }
+
+        if (cameraShake != null)
+        {
+            //camera shake and duration could be proportional to how hard the impact was?
+            StartCoroutine(cameraShake.StartShake(cameraShakeDuration));
         }
     }
 

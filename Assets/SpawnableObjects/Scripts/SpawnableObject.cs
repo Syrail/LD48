@@ -29,15 +29,11 @@ public class SpawnableObject : MonoBehaviour
         rb.angularVelocity = angularSpeed;
         rb.useGravity = false;
         hasImpactedShip = false;
-
     }
 
     // General behavior would be to just move on the forward vector
     void FixedUpdate()
     {
-        /*CustomBehavior();
-        transform.Rotate(angularSpeed * Time.fixedDeltaTime);
-        transform.position += velocity * Time.fixedDeltaTime;*/
         if(shipInstance != null)
         {
             float distance = Vector3.Distance(shipInstance.transform.position, transform.position);
@@ -46,11 +42,6 @@ public class SpawnableObject : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-
-    }
-
-    public void CustomBehavior()
-    {
     }
 
     void OnTriggerEnter(Collider target)
