@@ -544,14 +544,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57e100a208856149836057e7b672422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0
+  Speed: 5
   forceToAdd: 10
-  forceToAddAngular: 1
+  forceToAddAngular: 0.7
   velocity: {x: 0, y: 0, z: 0}
   angularVelocity: {x: 0, y: 0, z: 0}
   drag: 0.01
-  angularDrag: 0.1
-  rotate: 0
+  angularDrag: 0.13
+  rotate: 1
 --- !u!4 &423595254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7161648603588015760, guid: afea2e48d5bc40c4c9f8d23b918c0172, type: 3}
@@ -1011,17 +1011,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 321370859}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
+      propertyPath: distanceFromShip
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: spawnTimerRange.x
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: spawnTimerRange.y
-      value: 8
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
+      propertyPath: maxDistanceFromShip
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: spawnableObjects.Array.data[0].spawnableObject
       value: 
-      objectReference: {fileID: -3925850852026695216, guid: 8b3afd53345ba8842a924ecaf8718761, type: 3}
+      objectReference: {fileID: 587185551144435922, guid: c8659da0cb70fcf438f1cafbce12d711, type: 3}
     - target: {fileID: 4091511338538064938, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: m_Name
       value: SpawnerManager
