@@ -12,12 +12,15 @@ public class HullModule : MonoBehaviour
 
     public List<AudioClip> DamageSounds;
     public AudioClip warningSound;
+    public float cameraShakeDuration = 0.3f;
 
     private int health;
     public int MaxHealth;
     public int index;
     public GameObject healthListener;
-    
+
+    Shake cameraShake = null;
+
     private static int nextIndex = 0;
     // Start is called before the first frame update
     void Start()
@@ -31,13 +34,16 @@ public class HullModule : MonoBehaviour
         {
             interactable.slot = index;
         }
+        cameraShake = Camera.main.GetComponent<Shake>();
+
     }
 
     private void updateHealthDisplay()
     {
         Vector3 oldScale = healthListener.transform.localScale;
         float healthScaler = (1.0f * health) / (1.0f * MaxHealth);
-        healthListener.transform.localScale = new Vector3(3f*healthScaler, oldScale.y, oldScale.z);
+        healthListener.transform.localScale = new Vector3(6f*healthScaler, oldScale.y, oldScale.z);
+        healthListener.transform.localPosition = new Vector3(-3f*(1f - healthScaler), healthListener.transform.localPosition.y, healthListener.transform.localPosition.z);
     }
 
     public void PlayerEntered()
@@ -67,6 +73,12 @@ public class HullModule : MonoBehaviour
             health = 0;
             //bad stuff!
             //src.PlayOneShot(warningSound);
+        }
+
+        if (cameraShake != null)
+        {
+            //camera shake and duration could be proportional to how hard the impact was?
+            StartCoroutine(cameraShake.StartShake(cameraShakeDuration));
         }
     }
 
