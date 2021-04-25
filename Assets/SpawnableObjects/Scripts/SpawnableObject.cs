@@ -26,6 +26,7 @@ public class SpawnableObject : MonoBehaviour
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
         rb.velocity = velocity;
         rb.angularVelocity = angularSpeed;
+        rb.useGravity = false;
 
 
     }

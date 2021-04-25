@@ -6,14 +6,6 @@ public class GameplayEventListener : MonoBehaviour
 {
     public ShipMotion shipMotion;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-
-    private const float ROTATE_ANGLE = 15f;
     /*
      *  Handle player interaction with objects
      */
