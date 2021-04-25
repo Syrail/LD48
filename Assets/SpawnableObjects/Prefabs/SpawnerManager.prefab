@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnableObjects:
-  - spawnableObject: {fileID: 668510428803691670, guid: 8b3afd53345ba8842a924ecaf8718761, type: 3}
+  - spawnableObject: {fileID: -3925850852026695216, guid: 8b3afd53345ba8842a924ecaf8718761, type: 3}
     weight: 1
   spawnTimerRange: {x: 0.5, y: 5}
   ship: {fileID: 0}
   distanceFromShip: 20
+  maxDistanceFromShip: 40
+  spawnSize: {x: 5, y: 2}

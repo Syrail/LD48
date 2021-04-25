@@ -544,8 +544,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57e100a208856149836057e7b672422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrusterPower: []
+  Speed: 0
+  forceToAdd: 10
+  forceToAddAngular: 1
   velocity: {x: 0, y: 0, z: 0}
+  angularVelocity: {x: 0, y: 0, z: 0}
+  drag: 0.01
+  angularDrag: 0.1
+  rotate: 0
 --- !u!4 &423595254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7161648603588015760, guid: afea2e48d5bc40c4c9f8d23b918c0172, type: 3}
