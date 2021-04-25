@@ -33,9 +33,9 @@ public class ShipMotion : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation*thrustRotation, Time.fixedDeltaTime);
-        velocity += transform.forward * Time.fixedDeltaTime;
-        velocity.Normalize();
-        transform.position += Speed *Time.fixedDeltaTime*velocity;
+
+        velocity = transform.forward * Speed;
+        transform.position += Time.fixedDeltaTime*velocity;
     }
 
 
