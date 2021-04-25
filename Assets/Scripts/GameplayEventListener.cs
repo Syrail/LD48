@@ -34,10 +34,10 @@ public class GameplayEventListener : MonoBehaviour
                 case InteractionType.Boost:
                     break;
                 case InteractionType.Upgrade:
-                    
+                    Debug.Log("Upgrade slot " + interaction.slot);
                     break;
                 case InteractionType.Repair:
-
+                    Debug.Log("Repair slot " + interaction.slot);
                     break;
             }
         }

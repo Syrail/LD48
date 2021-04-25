@@ -6,15 +6,23 @@ public class HullModule : MonoBehaviour
 { 
     private int health;
     public int MaxHealth;
+    public int index;
     public GameObject healthListener;
 
     private bool uiActive = false;
-
+    private static int nextIndex = 0;
     // Start is called before the first frame update
     void Start()
     {
         health = MaxHealth;
         updateHealthDisplay();
+        index = HullModule.nextIndex;
+        HullModule.nextIndex++;
+        //assign this Bulkhead's index to the "Slot" parameter for all child interactables
+        foreach(Interactable interactable in gameObject.GetComponentsInChildren<Interactable>())
+        {
+            interactable.slot = index;
+        }
     }
 
     private void updateHealthDisplay()
