@@ -17,6 +17,8 @@ public class SpawnObjectManager : MonoBehaviour
     public float distanceFromShip = 20.0f;
     public float maxDistanceFromShip = 40.0f;
 
+    public Vector2 spawnSize = new Vector2(5.0f, 2.0f);
+
     float totalWeight = 0.0f;
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,8 @@ public class SpawnObjectManager : MonoBehaviour
         while (true)
         {
             Vector3 spawnPosition = ship.transform.position + (ship.transform.forward * distanceFromShip);
+            spawnPosition.x += UnityEngine.Random.Range(-spawnSize.x, spawnSize.x);
+            spawnPosition.y += UnityEngine.Random.Range(-spawnSize.y, spawnSize.y);
             int objectIndex = SelectGameObjectToSpawn();
 
             SpawnableObject newObject = Instantiate(spawnableObjects[objectIndex].spawnableObject, spawnPosition, Quaternion.LookRotation(-ship.transform.forward, ship.transform.up));
