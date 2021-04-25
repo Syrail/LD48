@@ -19,7 +19,7 @@ public class HullModule : MonoBehaviour
         index = HullModule.nextIndex;
         HullModule.nextIndex++;
         //assign this Bulkhead's index to the "Slot" parameter for all child interactables
-        foreach(Interactable interactable in gameObject.GetComponentsInChildren<Interactable>())
+        foreach(Interactable interactable in GetComponentsInChildren<Interactable>(true))
         {
             interactable.slot = index;
         }
@@ -30,11 +30,6 @@ public class HullModule : MonoBehaviour
         Vector3 oldScale = healthListener.transform.localScale;
         float healthScaler = (1.0f * health) / (1.0f * MaxHealth);
         healthListener.transform.localScale = new Vector3(3f*healthScaler, oldScale.y, oldScale.z);
-        MeshRenderer mr;
-        if (healthListener.TryGetComponent<MeshRenderer>(out mr))
-        {
-            mr.material.SetColor("_EmissionColor", Color.Lerp(Color.red, Color.green, healthScaler));
-        }
     }
 
     public void PlayerEntered()
