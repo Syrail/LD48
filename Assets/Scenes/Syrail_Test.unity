@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d9359dc22e757498d5922c46929c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interaction: 3
+  interaction: 0
   slot: 0
 --- !u!1001 &274376025
 PrefabInstance:
@@ -653,7 +653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d9359dc22e757498d5922c46929c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interaction: 4
+  interaction: 1
   slot: 0
 --- !u!1 &762598841
 GameObject:
@@ -1029,7 +1029,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 471250404720840689, guid: 5cc9e50a55f27db4da29222a07cca768, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 471250406088041900, guid: 5cc9e50a55f27db4da29222a07cca768, type: 3}
       propertyPath: m_RootOrder
@@ -6060,8 +6060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d9359dc22e757498d5922c46929c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interaction: 2
-  slot: 0
+  interaction: 0
+  slot: 1
 --- !u!1001 &1502582610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6309,8 +6309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d9359dc22e757498d5922c46929c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interaction: 1
-  slot: 0
+  interaction: 0
+  slot: 3
 --- !u!1 &1591504897
 GameObject:
   m_ObjectHideFlags: 0
@@ -6434,7 +6434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaction: 0
-  slot: 0
+  slot: 2
 --- !u!4 &1821302293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7161648603588015760, guid: afea2e48d5bc40c4c9f8d23b918c0172, type: 3}

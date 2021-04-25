@@ -26,7 +26,6 @@ public class GameplayEventListener : MonoBehaviour
         GameObject targetObj = target.collider.gameObject;
         Interactable interaction; 
         if(targetObj.TryGetComponent<Interactable>(out interaction)) {
-            Debug.Log("Interaction: " + interaction.interaction);
             switch (interaction.interaction)
             {
                 case InteractionType.Thrusters:
@@ -41,9 +40,6 @@ public class GameplayEventListener : MonoBehaviour
 
                     break;
             }
-        } else
-        {
-            Debug.Log("No interaction on " + targetObj.ToString());
         }
     }
 
