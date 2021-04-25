@@ -46,8 +46,6 @@ public class HullModule : MonoBehaviour
         {
             interactable.gameObject.SetActive(true);
         }
-        health = (int)(Random.value * MaxHealth);
-        updateHealthDisplay();
     }
 
     public void PlayerLeft()
