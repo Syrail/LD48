@@ -34,7 +34,7 @@ public class HullModule : MonoBehaviour
         {
             interactable.slot = index;
         }
-        cameraShake = Camera.main.transform.parent.GetComponent<Shake>();
+        cameraShake = Camera.main.GetComponent<Shake>();
 
     }
 
@@ -42,7 +42,8 @@ public class HullModule : MonoBehaviour
     {
         Vector3 oldScale = healthListener.transform.localScale;
         float healthScaler = (1.0f * health) / (1.0f * MaxHealth);
-        healthListener.transform.localScale = new Vector3(3f*healthScaler, oldScale.y, oldScale.z);
+        healthListener.transform.localScale = new Vector3(6f*healthScaler, oldScale.y, oldScale.z);
+        healthListener.transform.localPosition = new Vector3(-3f*(1f - healthScaler), healthListener.transform.localPosition.y, healthListener.transform.localPosition.z);
     }
 
     public void PlayerEntered()

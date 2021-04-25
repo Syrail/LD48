@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class Shake : MonoBehaviour
 {
@@ -17,13 +18,13 @@ public class Shake : MonoBehaviour
         Vector3 originalPos = transform.localPosition;
         while (shakeDuration > 0.0f)
         {
-            transform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
-
+            Variables.Scene(gameObject).Set("CameraShake", Random.insideUnitSphere * shakeAmount);
             shakeDuration -= Time.fixedDeltaTime * decreaseFactor;
             yield return new WaitForFixedUpdate();
         }
 
         shakeDuration = 0f;
-        transform.localPosition = originalPos;
+        //transform.localPosition = originalPos;
+        Variables.Scene(gameObject).Set("CameraShake", Vector3.zero);
     }
 }
