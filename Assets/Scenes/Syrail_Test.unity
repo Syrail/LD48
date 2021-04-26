@@ -613,7 +613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   forceToAdd: 7
-  forceToAddAngular: 0.8
+  forceToAddAngular: 1.2
   strafeForce: 1
   velocity: {x: 0, y: 0, z: 0}
   angularVelocity: {x: 0, y: 0, z: 0}
