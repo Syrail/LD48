@@ -38,6 +38,12 @@ public class GameplayEventListener : MonoBehaviour
                     break;
             }
         }
+
+        ButtonInteract animateButton;
+        if (targetObj.TryGetComponent<ButtonInteract>(out animateButton))
+        {
+            animateButton.StartAnimation();
+        }
     }
 
 
