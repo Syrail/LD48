@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 857bba2c5b522424da160866ebb50d53, type: 2}
+    - target: {fileID: 814643256254158342, guid: 1afdb9882086e264c847f18408df1767, type: 3}
+      propertyPath: m_Layer
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 1175102818195732435, guid: 1afdb9882086e264c847f18408df1767, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -79,6 +83,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnergyMeteor
       objectReference: {fileID: 0}
+    - target: {fileID: 7202480254463030578, guid: 1afdb9882086e264c847f18408df1767, type: 3}
+      propertyPath: m_Layer
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8315172981974398998, guid: 1afdb9882086e264c847f18408df1767, type: 3}
       propertyPath: SizeModule.enabled
       value: 1
@@ -102,6 +110,14 @@ PrefabInstance:
     - target: {fileID: 8315172981974398998, guid: 1afdb9882086e264c847f18408df1767, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920302381714256940, guid: 1afdb9882086e264c847f18408df1767, type: 3}
+      propertyPath: energyValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920302381714256940, guid: 1afdb9882086e264c847f18408df1767, type: 3}
+      propertyPath: resourceValue
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1afdb9882086e264c847f18408df1767, type: 3}

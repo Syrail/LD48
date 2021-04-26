@@ -14,6 +14,7 @@ public class SpawnObjectManager : MonoBehaviour
     public SpawnObjectChance[] spawnableObjects;
     public Vector2 spawnTimerRange = new Vector2(0.5f, 5.0f);
     public GameObject ship;
+    public GameplayEventListener gameplayEventListener;
     public float distanceFromShip = 20.0f;
     public float maxDistanceFromShip = 40.0f;
     public float minScale = 0.6f;
@@ -59,7 +60,7 @@ public class SpawnObjectManager : MonoBehaviour
             SpawnableObject newObject = Instantiate(spawnableObjects[objectIndex].spawnableObject, spawnPosition, Quaternion.LookRotation(-ship.transform.forward, ship.transform.up));
             newObject.transform.localScale = new Vector3(scale, scale, scale);
             newObject.SetShip(ship, maxDistanceFromShip);
-
+            newObject.SetEventListener(gameplayEventListener);
             float waitTime = UnityEngine.Random.Range(spawnTimerRange.x, spawnTimerRange.y);
             currentTime += waitTime;
             if(currentTime > duration)
