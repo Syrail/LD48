@@ -17,7 +17,7 @@ public class SpawnObjectManager : MonoBehaviour
     public GameplayEventListener gameplayEventListener;
     public float distanceFromShip = 20.0f;
     public float maxDistanceFromShip = 40.0f;
-    public float minScale = 0.6f;
+
     public Vector2 spawningTimeDuration = new Vector2(15.0f, 30.0f);
     public Vector2 restTimeDuration = new Vector2(5.0f, 15.0f);
 
@@ -51,13 +51,19 @@ public class SpawnObjectManager : MonoBehaviour
         //for now, spawn 20 units away from the ship
         while (true)
         {
-            Vector3 spawnPosition = ship.transform.position + (ship.transform.forward * distanceFromShip);
-            spawnPosition.x += UnityEngine.Random.Range(-spawnSize.x, spawnSize.x);
-            spawnPosition.y += UnityEngine.Random.Range(-spawnSize.y, spawnSize.y);
             int objectIndex = SelectGameObjectToSpawn();
-            float scale = UnityEngine.Random.Range(minScale, 1.0f);
+            float maxDistance = distanceFromShip;
+            if (spawnableObjects[objectIndex].spawnableObject.distanceFromShip > 0.0f && !Mathf.Approximately(0.0f, spawnableObjects[objectIndex].spawnableObject.distanceFromShip))
+            {
+                maxDistance = spawnableObjects[objectIndex].spawnableObject.distanceFromShip;
+            }
+            Vector3 spawnPosition = ship.transform.position + (ship.transform.forward * maxDistance);
+            spawnPosition.x += UnityEngine.Random.Range(-spawnSize.x, spawnSize.x);
+            spawnPosition.y += UnityEngine.Random.Range(-spawnSize.y, spawnSize.y);          
+            
 
             SpawnableObject newObject = Instantiate(spawnableObjects[objectIndex].spawnableObject, spawnPosition, Quaternion.LookRotation(-ship.transform.forward, ship.transform.up));
+            float scale = UnityEngine.Random.Range(newObject.scaleRange.x, newObject.scaleRange.y);
             newObject.transform.localScale = new Vector3(scale, scale, scale);
             newObject.SetShip(ship, maxDistanceFromShip);
             newObject.SetEventListener(gameplayEventListener);
