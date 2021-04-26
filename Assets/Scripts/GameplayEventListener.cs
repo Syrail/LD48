@@ -123,8 +123,7 @@ public class GameplayEventListener : MonoBehaviour
             yield return null;
         }
         Cursor.lockState = CursorLockMode.None;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Assets/Scenes/Start_Menu.unity");
-        AsyncOperation unloader = UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(toUnload.scene);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Assets/Scenes/Start_Menu.unity",UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 
     public static void updateResourceGauge(GameObject gauge, float current, float max)
