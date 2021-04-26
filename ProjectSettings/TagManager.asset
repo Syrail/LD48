@@ -39,8 +39,8 @@ TagManager:
   - ControlPanelButtons
   - Highlighted
   - EnemyTarget
-  - 
-  - 
+  - EnergyPickup
+  - ResourcePickup
   m_SortingLayers:
   - name: Default
     uniqueID: 0

@@ -12,21 +12,23 @@ public class ButtonInteract : MonoBehaviour
 
     public void StartAnimation()
     {
-        isAnimating = true;
-        StartCoroutine(Animate());
+        if (!isAnimating)
+        {
+            StartCoroutine(Animate());
+        }
     }
 
     IEnumerator Animate()
     {
-        
+        isAnimating = true;
         GameObject go = goReference != null ? goReference : gameObject;
         float duration = 0.0f;
         Vector3 originalPosition = go.transform.localPosition;
-        while(duration < animationTime)
+        Vector3 localUp = go.transform.up;
+        while (duration < animationTime)
         {
-            float value = curve.Evaluate(duration / animationTime);
-            Vector3 localUp = go.transform.InverseTransformPoint(go.transform.up).normalized;
-            Vector3 pos = go.transform.localPosition + (localUp * value);
+            float value = curve.Evaluate(duration / animationTime);            
+            Vector3 pos = originalPosition + (localUp * value * Time.fixedDeltaTime);
             go.transform.localPosition = pos;
             duration += Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
