@@ -7,9 +7,11 @@ public class SpawnableObject : MonoBehaviour
 {
     public Vector2 speedRange = new Vector2(1.0f, 10.0f);
     public Vector2 angularSpeedRange = new Vector2(1.0f, 10.0f);
+    public Vector2 scaleRange = new Vector2(0.6f, 1.0f);
     public int damage = 0;
     public int energyValue = 0;
     public int resourceValue = 0;
+    public float distanceFromShip = 0;
     public bool isHostile;
     public float speedBoost = 0;
 
