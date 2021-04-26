@@ -18,8 +18,10 @@ public class HullModule : MonoBehaviour
     public int MaxHealth;
     public int index;
     public GameObject healthListener;
+    public GameplayEventListener gameplayListener;
     public GameObject aliveNode;
     public GameObject deadNode;
+    
 
     Shake cameraShake = null;
 
@@ -81,6 +83,7 @@ public class HullModule : MonoBehaviour
             health = 0;
             aliveNode.SetActive(false);
             deadNode.SetActive(true);
+            gameplayListener.NotifyModuleDead();
             src.PlayOneShot(warningSound);
         }
         else if( health > 0)
@@ -92,6 +95,7 @@ public class HullModule : MonoBehaviour
 
     public void Repair()
     {
+        gameplayListener.NotifyModuleRepaired();
         health = MaxHealth;
         aliveNode.SetActive(true);
         deadNode.SetActive(false);

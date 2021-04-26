@@ -17,6 +17,7 @@ public class GameplayEventListener : MonoBehaviour
 
     public GameObject resourceGauge;
     public GameObject energyGauge;
+    public GameObject gameOverDisplay;
 
     private int energyDrain;
 
@@ -90,15 +91,40 @@ public class GameplayEventListener : MonoBehaviour
         updateResourceGauge(resourceGauge, resources, maxResources);
     }
     
+    public void NotifyModuleDead()
+    {
+        brokenParts++;
+    }
+
+    public void NotifyModuleRepaired()
+    {
+        brokenParts--;
+    }
+
+    private bool dead = false;
     private void Update()
     {
         energy -= Time.deltaTime*baseEnergyDrain*(1 + brokenParts);
-        if(energy < 0)
+        if(energy < 0 && !dead)
         {
             //game over, man!
             energy = 0;
+            gameOverDisplay.SetActive(true);
+            dead = true;
+            StartCoroutine(DelayedExit(gameObject));
         }
         updateResourceGauge(energyGauge, energy, maxEnergy);
+    }
+
+    static IEnumerator DelayedExit(GameObject toUnload)
+    {
+        for(float t = 0f; t < 5f; t += Time.deltaTime)
+        {
+            yield return null;
+        }
+        Cursor.lockState = CursorLockMode.None;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Assets/Scenes/Start_Menu.unity");
+        AsyncOperation unloader = UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(toUnload.scene);
     }
 
     public static void updateResourceGauge(GameObject gauge, float current, float max)
