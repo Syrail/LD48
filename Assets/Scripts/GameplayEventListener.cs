@@ -31,6 +31,12 @@ public class GameplayEventListener : MonoBehaviour
     {
         Debug.Log("Calling on key down with paramenter " + slot);
         shipMotion.EngageThruster(keyButtons[slot].slot);
+
+        ButtonInteract animateButton;
+        if (keyButtons[slot].TryGetComponent<ButtonInteract>(out animateButton))
+        {
+            animateButton.StartAnimation();
+        }
     }
     /*
      *  Handle player interaction with objects

@@ -20,6 +20,7 @@ public class ShipMotion : MonoBehaviour
 
     public float forceToAdd = 10.0f;
     public float forceToAddAngular = 10.0f;
+    public float strafeForce = 1.0f;
     public Vector3 velocity;
     public Vector3 angularVelocity = new Vector3();
     public float drag = 0.5f;
@@ -55,6 +56,7 @@ public class ShipMotion : MonoBehaviour
     {
         return isImmune;
     }
+
     IEnumerator ImmuneCooldown()
     {
         isImmune = true;
@@ -107,9 +109,11 @@ public class ShipMotion : MonoBehaviour
                     break;
                 case Direction.LEFT:
                     angularAcceleration.x -= thrusterPower[i];
+                    linearAcceleration -= transform.right * thrusterPower[i];
                     break;
                 case Direction.RIGHT:
                     angularAcceleration.x += thrusterPower[i];
+                    linearAcceleration += transform.right * thrusterPower[i];
                     break;
                 case Direction.STRAFE_LEFT:
                     linearAcceleration -= transform.right*thrusterPower[i];
