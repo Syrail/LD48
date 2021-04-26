@@ -20,6 +20,7 @@ public class ShipMotion : MonoBehaviour
 
     public float forceToAdd = 10.0f;
     public float forceToAddAngular = 10.0f;
+    public float strafeForce = 1.0f;
     public Vector3 velocity;
     public Vector3 angularVelocity = new Vector3();
     public float drag = 0.5f;
@@ -28,6 +29,7 @@ public class ShipMotion : MonoBehaviour
     float[] thrusterPower;
     Vector3 linearAcceleration = new Vector3();
     Vector3 angularAcceleration = new Vector3();
+    bool isImmune = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,22 @@ public class ShipMotion : MonoBehaviour
     public void BoostSpped(float speedBoost)
     {
         thrusterPower[(int)Direction.FORWARD] += speedBoost;
+        if(!isImmune)
+        {
+            StartCoroutine(ImmuneCooldown());
+        }
+    }
+
+    public bool IsImmune()
+    {
+        return isImmune;
+    }
+
+    IEnumerator ImmuneCooldown()
+    {
+        isImmune = true;
+        yield return new WaitForSeconds(0.5f);
+        isImmune = false;
     }
 
     private void FixedUpdate()
@@ -91,9 +109,11 @@ public class ShipMotion : MonoBehaviour
                     break;
                 case Direction.LEFT:
                     angularAcceleration.x -= thrusterPower[i];
+                    linearAcceleration -= transform.right * thrusterPower[i];
                     break;
                 case Direction.RIGHT:
                     angularAcceleration.x += thrusterPower[i];
+                    linearAcceleration += transform.right * thrusterPower[i];
                     break;
                 case Direction.STRAFE_LEFT:
                     linearAcceleration -= transform.right*thrusterPower[i];

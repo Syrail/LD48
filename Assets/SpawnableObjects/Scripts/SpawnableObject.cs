@@ -23,7 +23,7 @@ public class SpawnableObject : MonoBehaviour
     float maxDistanceFromShip = 0.0f;
     bool hasImpactedShip;
     bool isTargetLocked;
-    
+
 
     void Start()
     {
@@ -57,12 +57,24 @@ public class SpawnableObject : MonoBehaviour
     void OnTriggerEnter(Collider target)
     {
         DamageZone dmgZone;
+        ShipMotion motion = shipInstance.GetComponent<ShipMotion>();
+        bool allowDamage = motion != null ? !motion.IsImmune() : true;
+
         if (!hasImpactedShip && target.gameObject.tag.Equals("DamageZone") == true && target.gameObject.TryGetComponent(out dmgZone))
         {
-            hasImpactedShip = dmgZone.DealDamage(damage);
-        } 
+            if (allowDamage)
+            {
+                hasImpactedShip = dmgZone.DealDamage(damage);
+            }
+        }
 
-        if(!hasImpactedShip && !isTargetLocked && target.gameObject.tag.Equals("Turret"))
+        //we are checking for the turret (fr the ring), since it looks like a good collider, but this is just hacky
+        if (!hasImpactedShip && !isHostile && target.gameObject.tag.Equals("Turret") == true && motion != null)
+        {
+            motion.BoostSpped(speedBoost);
+        }
+
+        if (!hasImpactedShip && !isTargetLocked && target.gameObject.tag.Equals("Turret"))
         {
             AutoTurret turret;
             if(isHostile && target.gameObject.TryGetComponent(out turret)) {
@@ -74,14 +86,6 @@ public class SpawnableObject : MonoBehaviour
                     //grant resources based on type
                     gameplayEventListener.addEnergy(energyValue);
                     gameplayEventListener.addResources(resourceValue);
-                }
-            }
-            else if (!isHostile && shipInstance != null)
-            {
-                ShipMotion motion = shipInstance.GetComponent<ShipMotion>();
-                if (motion != null)
-                {
-                    motion.BoostSpped(speedBoost);
                 }
             }
         }

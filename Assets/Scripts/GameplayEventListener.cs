@@ -11,6 +11,8 @@ public class GameplayEventListener : MonoBehaviour
     public float maxEnergy;
     public float baseEnergyDrain;
     public float repairCost;
+    public Interactable[] keyButtons;
+
     private int brokenParts;
 
     public GameObject resourceGauge;
@@ -25,7 +27,17 @@ public class GameplayEventListener : MonoBehaviour
         updateResourceGauge(energyGauge, energy, maxEnergy);
     }
 
+    public void OnKeyDown(int slot)
+    {
+        Debug.Log("Calling on key down with paramenter " + slot);
+        shipMotion.EngageThruster(keyButtons[slot].slot);
 
+        ButtonInteract animateButton;
+        if (keyButtons[slot].TryGetComponent<ButtonInteract>(out animateButton))
+        {
+            animateButton.StartAnimation();
+        }
+    }
     /*
      *  Handle player interaction with objects
      */
