@@ -7,10 +7,13 @@ public class SpawnableObject : MonoBehaviour
 {
     public Vector2 speedRange = new Vector2(1.0f, 10.0f);
     public Vector2 angularSpeedRange = new Vector2(1.0f, 10.0f);
+    public Vector2 scaleRange = new Vector2(0.6f, 1.0f);
     public int damage = 0;
     public int energyValue = 0;
     public int resourceValue = 0;
+    public float distanceFromShip = 0;
     public bool isHostile;
+    public float speedBoost = 0;
 
     float speed = 0.0f;
     Vector3 angularSpeed;
@@ -71,6 +74,14 @@ public class SpawnableObject : MonoBehaviour
                     //grant resources based on type
                     gameplayEventListener.addEnergy(energyValue);
                     gameplayEventListener.addResources(resourceValue);
+                }
+            }
+            else if (!isHostile && shipInstance != null)
+            {
+                ShipMotion motion = shipInstance.GetComponent<ShipMotion>();
+                if (motion != null)
+                {
+                    motion.BoostSpped(speedBoost);
                 }
             }
         }

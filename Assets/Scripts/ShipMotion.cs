@@ -12,7 +12,8 @@ public class ShipMotion : MonoBehaviour
         LEFT,
         RIGHT,
         STRAFE_LEFT,
-        STRAFE_RIGHT
+        STRAFE_RIGHT,
+        FORWARD
     }
 
     public float Speed;
@@ -31,7 +32,7 @@ public class ShipMotion : MonoBehaviour
     void Start()
     {
 
-        thrusterPower = new float[4] { 0f, 0f, 0f, 0f };
+        thrusterPower = new float[7] { 0f, 0f, 0f, 0f, 0f, 0f, 0f };
         velocity = Vector3.forward * Speed;
     }
 
@@ -40,6 +41,10 @@ public class ShipMotion : MonoBehaviour
         thrusterPower[thrusterIndex] += ((Direction)thrusterIndex == Direction.LEFT || (Direction)thrusterIndex == Direction.RIGHT) ? forceToAddAngular : forceToAdd;
     }
 
+    public void BoostSpped(float speedBoost)
+    {
+        thrusterPower[(int)Direction.FORWARD] += speedBoost;
+    }
 
     private void FixedUpdate()
     {
@@ -95,6 +100,9 @@ public class ShipMotion : MonoBehaviour
                     break;
                 case Direction.STRAFE_RIGHT:
                     linearAcceleration += transform.right * thrusterPower[i];
+                    break;
+                case Direction.FORWARD:
+                    linearAcceleration += transform.forward * thrusterPower[i];
                     break;
             }
             thrusterPower[i] = 0.0f;
