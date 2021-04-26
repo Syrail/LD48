@@ -70,7 +70,7 @@ public class SpawnableObject : MonoBehaviour
 
                     //grant resources based on type
                     gameplayEventListener.addEnergy(energyValue);
-                    gameplayEventListener.addEnergy(resourceValue);
+                    gameplayEventListener.addResources(resourceValue);
                 }
             }
         }
