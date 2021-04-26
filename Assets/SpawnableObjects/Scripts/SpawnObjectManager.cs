@@ -17,6 +17,7 @@ public class SpawnObjectManager : MonoBehaviour
     public GameplayEventListener gameplayEventListener;
     public float distanceFromShip = 20.0f;
     public float maxDistanceFromShip = 40.0f;
+    public float reduceSpawnRatePerIteration = 0.5f;
 
     public Vector2 spawningTimeDuration = new Vector2(15.0f, 30.0f);
     public Vector2 restTimeDuration = new Vector2(5.0f, 15.0f);
@@ -24,12 +25,14 @@ public class SpawnObjectManager : MonoBehaviour
     public Vector2 spawnSize = new Vector2(5.0f, 2.0f);
 
     float totalWeight = 0.0f;
+    float maxSpawnRate = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
         AudioListener.volume = 0.5f;
         CalculateTotalWeight();
-        StartCoroutine(ManageSpawnTimers());
+        maxSpawnRate = spawnTimerRange.y;
+        StartCoroutine(ManageSpawnTimers());        
     }
 
     IEnumerator ManageSpawnTimers()
@@ -70,13 +73,19 @@ public class SpawnObjectManager : MonoBehaviour
             float maxFromShip = selfSpawnDistance ? (maxDistance * 5.0f) : maxDistanceFromShip;
             newObject.SetShip(ship, maxFromShip);
             newObject.SetEventListener(gameplayEventListener);
-            float waitTime = UnityEngine.Random.Range(spawnTimerRange.x, spawnTimerRange.y);
+            float waitTime = UnityEngine.Random.Range(spawnTimerRange.x, maxSpawnRate);
             currentTime += waitTime;
             if(currentTime > duration)
             {
                 yield break;
             }
             yield return new WaitForSeconds(waitTime);
+        }
+
+        maxSpawnRate -= reduceSpawnRatePerIteration;
+        if(maxSpawnRate < spawnTimerRange.x)
+        {
+            maxSpawnRate = spawnTimerRange.x;
         }
     }
 
@@ -102,5 +111,10 @@ public class SpawnObjectManager : MonoBehaviour
             
         }
         return 0;
+    }
+
+    public void ResetVariables()
+    {
+        maxSpawnRate = spawnTimerRange.y;
     }
 }
