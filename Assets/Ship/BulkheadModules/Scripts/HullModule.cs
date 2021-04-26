@@ -18,6 +18,8 @@ public class HullModule : MonoBehaviour
     public int MaxHealth;
     public int index;
     public GameObject healthListener;
+    public GameObject aliveNode;
+    public GameObject deadNode;
 
     Shake cameraShake = null;
 
@@ -66,15 +68,19 @@ public class HullModule : MonoBehaviour
     {
         AudioSource src = GetComponent<AudioSource>();
         src.PlayOneShot(DamageSounds[(int)type]);
-        health -= damageDealt;
+        
         updateHealthDisplay();
-        if(health <= 0)
+        if (damageDealt > health && health > 0)
         {
             health = 0;
-            //bad stuff!
-            //src.PlayOneShot(warningSound);
+            aliveNode.SetActive(false);
+            deadNode.SetActive(true);
+            src.PlayOneShot(warningSound);
         }
-
+        else if( health > 0)
+        {
+            health -= damageDealt;
+        }
         if (cameraShake != null)
         {
             //camera shake and duration could be proportional to how hard the impact was?
