@@ -67,7 +67,13 @@ public class HullModule : MonoBehaviour
     public void Damage(int damageDealt, DamageType type)
     {
         AudioSource src = GetComponent<AudioSource>();
-        src.PlayOneShot(DamageSounds[(int)type]);
+        if (cameraShake != null && damageDealt > 0)
+        {
+            src.PlayOneShot(DamageSounds[(int)type]);
+            //camera shake and duration could be proportional to how hard the impact was?
+            StartCoroutine(cameraShake.StartShake(cameraShakeDuration));
+        }
+        
         
         updateHealthDisplay();
         if (damageDealt >= health && health > 0)
@@ -81,11 +87,7 @@ public class HullModule : MonoBehaviour
         {
             health -= damageDealt;
         }
-        if (cameraShake != null)
-        {
-            //camera shake and duration could be proportional to how hard the impact was?
-            StartCoroutine(cameraShake.StartShake(cameraShakeDuration));
-        }
+        
     }
 
     public void Repair()
