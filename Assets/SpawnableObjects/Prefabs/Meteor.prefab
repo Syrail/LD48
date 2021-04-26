@@ -49,10 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedRange: {x: 1, y: 8}
   angularSpeedRange: {x: 0.1, y: 1}
+  scaleRange: {x: 0.6, y: 5}
   damage: 1
   energyValue: 0
   resourceValue: 0
+  distanceFromShip: 0
   isHostile: 1
+  speedBoost: 0
 --- !u!135 &1846670282450066685
 SphereCollider:
   m_ObjectHideFlags: 0

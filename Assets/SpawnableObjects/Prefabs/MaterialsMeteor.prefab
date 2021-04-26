@@ -4886,6 +4886,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 587185551144435922, guid: c8659da0cb70fcf438f1cafbce12d711, type: 3}
+      propertyPath: scaleRange.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 587185551144435922, guid: c8659da0cb70fcf438f1cafbce12d711, type: 3}
       propertyPath: resourceValue
       value: 5
       objectReference: {fileID: 0}
