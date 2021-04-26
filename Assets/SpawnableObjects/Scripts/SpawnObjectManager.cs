@@ -17,6 +17,8 @@ public class SpawnObjectManager : MonoBehaviour
     public float distanceFromShip = 20.0f;
     public float maxDistanceFromShip = 40.0f;
     public float minScale = 0.6f;
+    public Vector2 spawningTimeDuration = new Vector2(15.0f, 30.0f);
+    public Vector2 restTimeDuration = new Vector2(5.0f, 15.0f);
 
     public Vector2 spawnSize = new Vector2(5.0f, 2.0f);
 
@@ -26,11 +28,25 @@ public class SpawnObjectManager : MonoBehaviour
     {
         AudioListener.volume = 0.5f;
         CalculateTotalWeight();
-        StartCoroutine(SpawnObject());
+        StartCoroutine(ManageSpawnTimers());
+    }
+
+    IEnumerator ManageSpawnTimers()
+    {
+        while(true)
+        {
+            yield return SpawnObject();
+            float sleepTime = UnityEngine.Random.Range(restTimeDuration.x, restTimeDuration.y);
+            Debug.Log("Spawner is sleeping for " + sleepTime);
+            yield return new WaitForSeconds(sleepTime);
+        }
     }
 
     IEnumerator SpawnObject()
     {
+        Debug.Log("Spawning Objects");
+        float duration = UnityEngine.Random.Range(spawningTimeDuration.x, spawningTimeDuration.y);
+        float currentTime = 0.0f;
         //for now, spawn 20 units away from the ship
         while (true)
         {
@@ -43,7 +59,14 @@ public class SpawnObjectManager : MonoBehaviour
             SpawnableObject newObject = Instantiate(spawnableObjects[objectIndex].spawnableObject, spawnPosition, Quaternion.LookRotation(-ship.transform.forward, ship.transform.up));
             newObject.transform.localScale = new Vector3(scale, scale, scale);
             newObject.SetShip(ship, maxDistanceFromShip);
-            yield return new WaitForSeconds(UnityEngine.Random.Range(spawnTimerRange.x, spawnTimerRange.y));
+
+            float waitTime = UnityEngine.Random.Range(spawnTimerRange.x, spawnTimerRange.y);
+            currentTime += waitTime;
+            if(currentTime > duration)
+            {
+                yield break;
+            }
+            yield return new WaitForSeconds(waitTime);
         }
     }
 
