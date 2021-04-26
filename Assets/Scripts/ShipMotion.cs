@@ -28,6 +28,7 @@ public class ShipMotion : MonoBehaviour
     float[] thrusterPower;
     Vector3 linearAcceleration = new Vector3();
     Vector3 angularAcceleration = new Vector3();
+    bool isImmune = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +45,21 @@ public class ShipMotion : MonoBehaviour
     public void BoostSpped(float speedBoost)
     {
         thrusterPower[(int)Direction.FORWARD] += speedBoost;
+        if(!isImmune)
+        {
+            StartCoroutine(ImmuneCooldown());
+        }
+    }
+
+    public bool IsImmune()
+    {
+        return isImmune;
+    }
+    IEnumerator ImmuneCooldown()
+    {
+        isImmune = true;
+        yield return new WaitForSeconds(0.5f);
+        isImmune = false;
     }
 
     private void FixedUpdate()
