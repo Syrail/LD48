@@ -49,6 +49,10 @@ MonoBehaviour:
   speedRange: {x: 1, y: 8}
   angularSpeedRange: {x: 0.1, y: 1}
   damage: 1
+  energyValue: 0
+  resourceValue: 0
+  isHostile: 0
+  speedBoost: 10
 --- !u!64 &7238766362837497630
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -57,10 +61,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2446675398456620852}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8264766115119967290, guid: 4a6c83fcf1f6a284aaddc19379ca7f7d, type: 3}
 --- !u!54 &710581678629965214
