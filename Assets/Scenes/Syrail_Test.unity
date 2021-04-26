@@ -1808,7 +1808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: spawnTimerRange.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: restTimeDuration.x
@@ -2299,7 +2299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5830958108895488647, guid: 6872c5ceea02d0445b912a91af048fed, type: 3}
       propertyPath: fireCooldown
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6872c5ceea02d0445b912a91af048fed, type: 3}
@@ -11445,7 +11445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5830958108895488647, guid: 6872c5ceea02d0445b912a91af048fed, type: 3}
       propertyPath: fireCooldown
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5830958110045467715, guid: 6872c5ceea02d0445b912a91af048fed, type: 3}
       propertyPath: m_Enabled
