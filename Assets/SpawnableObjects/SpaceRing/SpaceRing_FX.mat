@@ -53,10 +53,12 @@ Material:
     - Fuzziness: 0.13
     - HexPos: 0.327
     - Intensity: 2.22
-    - Intensity_High: 1
+    - Intensity_High: 1.4
     - Intensity_Low: 0
+    - NoiseTiling: -0.15
     m_Colors:
     - Color_02: {r: 0, g: 0.667567, b: 1, a: 0}
     - Hex: {r: 0, g: 0, b: 0, a: 0}
+    - PatternTiling: {r: 5, g: 5, b: 0, a: 0}
     - _Color: {r: 0, g: 0.88773274, b: 1, a: 0}
   m_BuildTextureStacks: []
