@@ -128,7 +128,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 0
     m_Colors:
-    - BP_Tiling: {r: 10, g: 10, b: 16, a: 0}
+    - BP_Tiling: {r: 16, g: 16, b: 16, a: 0}
     - BlueprintColor: {r: 1, g: 0.13077465, b: 0, a: 0}
     - HighlightColor: {r: 0.3679245, g: 0, b: 0.015996626, a: 0}
     - _BaseColor: {r: 0, g: 0.45854372, b: 0.5471698, a: 1}
