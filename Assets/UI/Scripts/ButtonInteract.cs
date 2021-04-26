@@ -21,17 +21,18 @@ public class ButtonInteract : MonoBehaviour
         
         GameObject go = goReference != null ? goReference : gameObject;
         float duration = 0.0f;
-        Vector3 originalPosition = go.transform.position;
+        Vector3 originalPosition = go.transform.localPosition;
         while(duration < animationTime)
         {
-            Vector3 pos = go.transform.position;
-            pos.y += curve.Evaluate(duration / animationTime);
-            go.transform.position = pos;
-            duration += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            float value = curve.Evaluate(duration / animationTime);
+            Vector3 localUp = go.transform.InverseTransformPoint(go.transform.up).normalized;
+            Vector3 pos = go.transform.localPosition + (localUp * value);
+            go.transform.localPosition = pos;
+            duration += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
         }
 
-        go.transform.position = originalPosition;
+        go.transform.localPosition = originalPosition;
         isAnimating = false;
     }
 }
