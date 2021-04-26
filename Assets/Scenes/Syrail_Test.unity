@@ -445,26 +445,26 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.0003272146
-      inSlope: -3.1661274
-      outSlope: -3.1661274
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.03735363
-    - serializedVersion: 3
-      time: 1
-      value: -0.00033664703
+      value: 1
       inSlope: 0
       outSlope: 0
-      tangentMode: 0
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0.091513336
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  animationTime: 0.2
+  animationTime: 0
   goReference: {fileID: 1390297176}
 --- !u!1001 &274376025
 PrefabInstance:
@@ -1836,7 +1836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: spawnableObjects.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: spawnableObjects.Array.data[0].weight
@@ -1852,7 +1852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: spawnableObjects.Array.data[3].weight
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: spawnableObjects.Array.data[0].spawnableObject
@@ -1869,7 +1869,7 @@ PrefabInstance:
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: spawnableObjects.Array.data[3].spawnableObject
       value: 
-      objectReference: {fileID: 2550684136974692030, guid: 236924314b462a3478d1d48058dcc80b, type: 3}
+      objectReference: {fileID: 587185551144435922, guid: 26f98bfe96f5c7b479c2d1a4725f53be, type: 3}
     - target: {fileID: 4091511338538064938, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: m_Name
       value: SpawnerManager
@@ -2949,6 +2949,11 @@ MonoBehaviour:
   maxEnergy: 100
   baseEnergyDrain: 1
   repairCost: 3
+  keyButtons:
+  - {fileID: 231486616}
+  - {fileID: 1589925584}
+  - {fileID: 1591504903}
+  - {fileID: 1462221160}
   resourceGauge: {fileID: 793500170}
   energyGauge: {fileID: 66826625}
 --- !u!64 &68903612871184350
