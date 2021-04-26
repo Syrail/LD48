@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class DamageZone : MonoBehaviour
 {
-   public void DealDamage(int damage)
+   public bool DealDamage(int damage)
     {
         HullModule mod;
-        if(transform.parent.TryGetComponent(out mod))
+        if(transform.parent.TryGetComponent(out mod) && mod.health > 0)
         {
             Debug.Log("Took " + damage + " damage!");
             mod.Damage(damage, HullModule.DamageType.Impact);
+            return true;
         }
-        
+        return false;
     }
 }

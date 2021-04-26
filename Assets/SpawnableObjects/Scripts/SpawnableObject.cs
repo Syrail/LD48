@@ -49,8 +49,8 @@ public class SpawnableObject : MonoBehaviour
         DamageZone dmgZone;
         if (!hasImpactedShip && target.gameObject.tag.Equals("DamageZone") == true && target.gameObject.TryGetComponent(out dmgZone))
         {
-            hasImpactedShip = true;
-            dmgZone.DealDamage(damage);
+            hasImpactedShip = dmgZone.DealDamage(damage); ;
+            
         }
     }
 
@@ -58,9 +58,7 @@ public class SpawnableObject : MonoBehaviour
     {
         if(hasImpactedShip)
         {
-            Vector3 rev = collision.GetContact(0).normal;
-            Rigidbody rb = GetComponent<Rigidbody>();
-            rb.AddForceAtPosition(rb.mass * 100f* rev, collision.GetContact(0).point);
+            Destroy(gameObject);
         }
     }
 

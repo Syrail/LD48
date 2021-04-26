@@ -29,6 +29,11 @@ public class GameplayEventListener : MonoBehaviour
                     Debug.Log("Upgrade slot " + interaction.slot);
                     break;
                 case InteractionType.Repair:
+                    HullModule mod;
+                    if(interaction.transform.parent.TryGetComponent(out mod))
+                    {
+                        mod.Repair();
+                    }
                     Debug.Log("Repair slot " + interaction.slot);
                     break;
             }
