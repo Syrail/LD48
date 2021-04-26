@@ -634,6 +634,7 @@ MonoBehaviour:
   Speed: 5
   forceToAdd: 6
   forceToAddAngular: 0.8
+  strafeForce: 1
   velocity: {x: 0, y: 0, z: 0}
   angularVelocity: {x: 0, y: 0, z: 0}
   drag: 0.01
@@ -1804,23 +1805,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: spawnTimerRange.x
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: spawnTimerRange.y
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: restTimeDuration.x
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: restTimeDuration.y
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: maxDistanceFromShip
-      value: 120
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: gameplayEventListener
@@ -1844,11 +1845,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: spawnableObjects.Array.data[1].weight
-      value: 0.1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: spawnableObjects.Array.data[2].weight
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4091511338538064937, guid: 04c08f6c21b34c04baef4ab6551ab483, type: 3}
       propertyPath: spawnableObjects.Array.data[3].weight
