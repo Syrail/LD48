@@ -58,7 +58,7 @@ public class SpawnableObject : MonoBehaviour
     {
         DamageZone dmgZone;
         ShipMotion motion = shipInstance.GetComponent<ShipMotion>();
-        bool allowDamage = motion != null ? motion.IsImmune() : true;
+        bool allowDamage = motion != null ? !motion.IsImmune() : true;
 
         if (!hasImpactedShip && target.gameObject.tag.Equals("DamageZone") == true && target.gameObject.TryGetComponent(out dmgZone))
         {
