@@ -5,6 +5,26 @@ using static Interactable;
 public class GameplayEventListener : MonoBehaviour
 {
     public ShipMotion shipMotion;
+    public float resources;
+    public float maxResources;
+    public float energy;
+    public float maxEnergy;
+    public float baseEnergyDrain;
+    public float repairCost;
+    private int brokenParts;
+
+    public GameObject resourceGauge;
+    public GameObject energyGauge;
+
+    private int energyDrain;
+
+    private void Start()
+    {
+        brokenParts = 0;
+        updateResourceGauge(resourceGauge, resources, maxResources);
+        updateResourceGauge(energyGauge, energy, maxEnergy);
+    }
+
 
     /*
      *  Handle player interaction with objects
@@ -26,15 +46,15 @@ public class GameplayEventListener : MonoBehaviour
                 case InteractionType.Boost:
                     break;
                 case InteractionType.Upgrade:
-                    Debug.Log("Upgrade slot " + interaction.slot);
                     break;
                 case InteractionType.Repair:
                     HullModule mod;
-                    if(interaction.transform.parent.TryGetComponent(out mod))
+                    if (resources > repairCost && interaction.transform.parent.TryGetComponent(out mod) && mod.health < mod.MaxHealth)
                     {
+                        resources -= repairCost;
+                        updateResourceGauge(resourceGauge, resources, maxResources );
                         mod.Repair();
                     }
-                    Debug.Log("Repair slot " + interaction.slot);
                     break;
             }
         }
@@ -44,6 +64,26 @@ public class GameplayEventListener : MonoBehaviour
         {
             animateButton.StartAnimation();
         }
+    }
+
+    
+    private void Update()
+    {
+        energy -= Time.deltaTime*baseEnergyDrain*(1 + brokenParts);
+        if(energy < 0)
+        {
+            //game over, man!
+            energy = 0;
+        }
+        updateResourceGauge(energyGauge, energy, maxEnergy);
+    }
+
+    public static void updateResourceGauge(GameObject gauge, float current, float max)
+    {
+        Vector3 oldScale = gauge.transform.localScale;
+        float resourceScaler = (1.0f * current) / (1.0f * max);
+        gauge.transform.localScale = new Vector3(2.2f * resourceScaler, oldScale.y, oldScale.z);
+        gauge.transform.localPosition = new Vector3(-1.1f * (1f - resourceScaler), gauge.transform.localPosition.y, gauge.transform.localPosition.z);
     }
 
 
