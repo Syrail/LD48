@@ -68,13 +68,13 @@ public class GameplayEventListener : MonoBehaviour
 
     public void addEnergy(float amt)
     {
-        energy += amt;
+        energy = Mathf.Min(energy + amt, maxEnergy);
         updateResourceGauge(energyGauge, energy, maxEnergy);
     }
 
     public void addResources(float amt)
     {
-        resources += amt;
+        resources = Mathf.Min(resources + amt, maxResources);
         updateResourceGauge(resourceGauge, resources, maxResources);
     }
     
