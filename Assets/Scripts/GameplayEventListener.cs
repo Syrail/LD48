@@ -66,6 +66,17 @@ public class GameplayEventListener : MonoBehaviour
         }
     }
 
+    public void addEnergy(float amt)
+    {
+        energy += amt;
+        updateResourceGauge(energyGauge, energy, maxEnergy);
+    }
+
+    public void addResources(float amt)
+    {
+        resources += amt;
+        updateResourceGauge(resourceGauge, resources, maxResources);
+    }
     
     private void Update()
     {
@@ -85,6 +96,7 @@ public class GameplayEventListener : MonoBehaviour
         gauge.transform.localScale = new Vector3(2.2f * resourceScaler, oldScale.y, oldScale.z);
         gauge.transform.localPosition = new Vector3(-1.1f * (1f - resourceScaler), gauge.transform.localPosition.y, gauge.transform.localPosition.z);
     }
+
 
 
 }

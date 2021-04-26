@@ -103,5 +103,13 @@ PrefabInstance:
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8920302381714256940, guid: 1afdb9882086e264c847f18408df1767, type: 3}
+      propertyPath: energyValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920302381714256940, guid: 1afdb9882086e264c847f18408df1767, type: 3}
+      propertyPath: resourceValue
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1afdb9882086e264c847f18408df1767, type: 3}

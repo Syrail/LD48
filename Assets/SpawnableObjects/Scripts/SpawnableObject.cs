@@ -8,13 +8,19 @@ public class SpawnableObject : MonoBehaviour
     public Vector2 speedRange = new Vector2(1.0f, 10.0f);
     public Vector2 angularSpeedRange = new Vector2(1.0f, 10.0f);
     public int damage = 0;
+    public int energyValue = 0;
+    public int resourceValue = 0;
+    public bool isHostile;
 
     float speed = 0.0f;
     Vector3 angularSpeed;
     Vector3 velocity;
     GameObject shipInstance = null;
+    GameplayEventListener gameplayEventListener = null;
     float maxDistanceFromShip = 0.0f;
     bool hasImpactedShip;
+    bool isTargetLocked;
+    
 
     void Start()
     {
@@ -29,6 +35,7 @@ public class SpawnableObject : MonoBehaviour
         rb.angularVelocity = angularSpeed;
         rb.useGravity = false;
         hasImpactedShip = false;
+        isTargetLocked = false;
     }
 
     // General behavior would be to just move on the forward vector
@@ -49,9 +56,26 @@ public class SpawnableObject : MonoBehaviour
         DamageZone dmgZone;
         if (!hasImpactedShip && target.gameObject.tag.Equals("DamageZone") == true && target.gameObject.TryGetComponent(out dmgZone))
         {
-            hasImpactedShip = dmgZone.DealDamage(damage); ;
-            
+            hasImpactedShip = dmgZone.DealDamage(damage);
+        } 
+
+        if(!hasImpactedShip && !isTargetLocked && target.gameObject.tag.Equals("Turret"))
+        {
+            AutoTurret turret;
+            if(isHostile && target.gameObject.TryGetComponent(out turret)) {
+                if (turret.NotifyTargetInRange(gameObject))
+                {
+                    //set target locked state 
+                    isTargetLocked = true;
+
+                    //grant resources based on type
+                    gameplayEventListener.addEnergy(energyValue);
+                    gameplayEventListener.addEnergy(resourceValue);
+                }
+            }
         }
+
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -66,5 +90,10 @@ public class SpawnableObject : MonoBehaviour
     {
         shipInstance = ship;
         maxDistanceFromShip = maxDistance;
+    }
+
+    public void SetEventListener(GameplayEventListener eventListener)
+    {
+        gameplayEventListener = eventListener;
     }
 }

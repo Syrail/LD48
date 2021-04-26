@@ -6,6 +6,8 @@ TagManager:
   tags:
   - DespawnWall
   - DamageZone
+  - PlayerTrigger
+  - Turret
   layers:
   - Default
   - TransparentFX
