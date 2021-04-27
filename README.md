@@ -1,4 +1,4 @@
-# LD48
+# Flying, In Space, but with Asteroids!
 Ludum Dare Jam #48
 
 Our team took this jam as an opportunity to brush up with Unity, and we knew going in that this project isn't one we would be able to continue with after the event ended. While there's not a whole ton of riveting gameplay in our game, we were all pretty happy with where we ended the weekend. Read on to learn how to play!
