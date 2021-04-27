@@ -22,8 +22,9 @@ Interacting with any of the buttons on the console will steer the ship.
 Be warned: management has cut thruster maintenance budgets and steering may be... imprecise. 
 
 ## Asteroids
-Management has indicated that crashing into these would be... Unpleasant. 
 ![image](https://user-images.githubusercontent.com/1917116/116165362-b75e9b00-a6c9-11eb-9be3-41f0e52281cc.png)
+Management has indicated that crashing into these would be... Unpleasant. 
+
 
 ## Structural Damage
 In the (extremely) likely event of pilot error, parts of the ship may be destroyed. If this should happen, a force-field will spring up to protect you from the lonely, cold vacuum of space. 
