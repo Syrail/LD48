@@ -30,6 +30,7 @@ Management has indicated that crashing into these would be... Unpleasant.
 In the (extremely) likely event of pilot error, parts of the ship may be destroyed. If this should happen, a force-field will spring up to protect you from the lonely, cold vacuum of space. 
 
 ![image](https://user-images.githubusercontent.com/1917116/116164735-4e2a5800-a6c8-11eb-8a54-96d7cda5f7cd.png)
+
 **WARNING** Each active force field will drain additional energy from the ship's core. Promptly repairing broken parts is recommended. 
 
 ![image](https://user-images.githubusercontent.com/1917116/116164844-85990480-a6c8-11eb-9bfd-380b8ffbf006.png) To repair a damaged piece of the ship, just interact (Click, or push Square / "X" on controller) with this symbol on the damaged wall. 
@@ -38,6 +39,7 @@ In the (extremely) likely event of pilot error, parts of the ship may be destroy
 
 ## Weapons Modules
 Due to prior incidents involving Mandatory Planet Recyclers, an exhaust vent, and torpedoes, Managment has required that all weapons systems on-board be automated. 
+
 ![image](https://user-images.githubusercontent.com/1917116/116165232-6cdd1e80-a6c9-11eb-9bf1-5fcc54a5d926.png) ![image](https://user-images.githubusercontent.com/1917116/116165248-75355980-a6c9-11eb-868e-d560f60a695f.png)
 
 Each of these modules controls the weapons systems for one side of the ship. If they are destroyed, the corresponding weapons will cease firing until the module is repaired. 
