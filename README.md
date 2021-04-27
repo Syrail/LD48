@@ -5,7 +5,7 @@ Our team took this jam as an opportunity to brush up with Unity, and we knew goi
 
 # Gameplay
 
-##Controls:
+## Controls
 You can look around with the mouse, and move around the ship with W,A,S, and D keys. 
 Left-click with the mouse to interact with objects. 
 
