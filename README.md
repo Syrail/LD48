@@ -9,7 +9,7 @@ Our team took this jam as an opportunity to brush up with Unity, and we knew goi
 You can look around with the mouse, and move around the ship with W,A,S, and D keys. 
 Left-click with the mouse to interact with objects. 
 
-## Objective - Don't die!##
+## Objective - Don't die!
 Energy is what keeps this bucket of bolts going, and if you run out, that's the end of the line.
 
 Management has required that all backup power systems be removed due to budgetary constraints, but the auto-turrets will harvest energy when destroying blue asteroids. 
