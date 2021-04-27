@@ -22,8 +22,10 @@ Interacting with any of the buttons on the console will steer the ship.
 Be warned: management has cut thruster maintenance budgets and steering may be... imprecise. 
 
 ## Asteroids
-![image](https://user-images.githubusercontent.com/1917116/116165362-b75e9b00-a6c9-11eb-9be3-41f0e52281cc.png)
 Management has indicated that crashing into these would be... Unpleasant. 
+
+![image](https://user-images.githubusercontent.com/1917116/116165362-b75e9b00-a6c9-11eb-9be3-41f0e52281cc.png)
+
 
 
 ## Structural Damage
@@ -33,7 +35,8 @@ In the (extremely) likely event of pilot error, parts of the ship may be destroy
 
 **WARNING** Each active force field will drain additional energy from the ship's core. Promptly repairing broken parts is recommended. 
 
-![image](https://user-images.githubusercontent.com/1917116/116164844-85990480-a6c8-11eb-9bfd-380b8ffbf006.png) To repair a damaged piece of the ship, just interact (Click, or push Square / "X" on controller) with this symbol on the damaged wall. 
+To repair a damaged piece of the ship, just interact (Click, or push Square / "X" on controller) with this symbol on the damaged wall. 
+![image](https://user-images.githubusercontent.com/1917116/116164844-85990480-a6c8-11eb-9bfd-380b8ffbf006.png) 
 
 **PLEASE NOTE:** Management has included only a limited supply of repair materials on board. The auto-turrets will harvest more when destroying yellow asteroids.
 
